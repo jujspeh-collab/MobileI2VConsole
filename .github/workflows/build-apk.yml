@@ -24,11 +24,9 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Setup Android SDK
-        run: |
-          echo "ANDROID_HOME=$ANDROID_HOME" >> "$GITHUB_ENV"
-          echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
-          yes | sdkmanager --licenses || true
-          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
 
       - name: Install MAUI Android workload
         run: dotnet workload install maui-android
