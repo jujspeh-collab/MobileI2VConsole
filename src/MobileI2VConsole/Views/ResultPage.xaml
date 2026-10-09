@@ -8,7 +8,8 @@
              Title="Result"
              BackgroundColor="{StaticResource PageBackgroundColor}">
 
-    <Grid RowDefinitions="*,Auto,Auto" Padding="20">
+    <Grid RowDefinitions="*,Auto,Auto"
+          Padding="20">
 
         <!-- Video Player -->
         <Border Grid.Row="0"
@@ -17,14 +18,16 @@
                 StrokeThickness="1"
                 BackgroundColor="#1A1A2E"
                 Margin="0,0,0,10">
+
             <Grid>
-                <toolkit:MediaElement x:Name="VideoPlayer"
-                              Source="{Binding VideoSource}"
-                              Aspect="AspectFit"
-                              IsLooping="True"
-                              ShouldAutoPlay="True"
-                              VerticalOptions="Fill"
-                              HorizontalOptions="Fill" />
+                <toolkit:MediaElement
+                    x:Name="VideoPlayer"
+                    Source="{Binding VideoSource}"
+                    Aspect="AspectFit"
+                    ShouldAutoPlay="True"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill" />
+
                 <Label Text="Your video is ready!"
                        IsVisible="False"
                        HorizontalOptions="Center"
@@ -35,10 +38,12 @@
         </Border>
 
         <!-- Action Buttons -->
-        <HorizontalStackLayout Grid.Row="1"
-                                Spacing="15"
-                                HorizontalOptions="Center"
-                                Margin="0,10">
+        <HorizontalStackLayout
+            Grid.Row="1"
+            Spacing="15"
+            HorizontalOptions="Center"
+            Margin="0,10">
+
             <Button Text="📤 Share"
                     Command="{Binding ShareVideoCommand}"
                     BackgroundColor="#4A90D9"
@@ -46,6 +51,7 @@
                     CornerRadius="12"
                     Padding="20,12"
                     FontSize="15" />
+
             <Button Text="💾 Save"
                     Command="{Binding SaveToGalleryCommand}"
                     BackgroundColor="#4A90D9"
@@ -63,5 +69,6 @@
                 TextColor="#4A90D9"
                 FontSize="16"
                 Margin="0,10,0,20" />
+
     </Grid>
 </ContentPage>
